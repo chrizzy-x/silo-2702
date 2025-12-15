@@ -1,6 +1,6 @@
 window.__RUNTIME_CONFIG__ = {
   "VITE_ORDERLY_BROKER_ID": "demo",
-  "VITE_ORDERLY_BROKER_NAME": "silo.",
+  "VITE_ORDERLY_BROKER_NAME": "SiloPerps",
   "VITE_BROKER_EOA_ADDRESS": "0x11dca5f8ff9fe9ef14496b7eb4c99e915e0e45ca",
   "VITE_DISABLE_MAINNET": "false",
   "VITE_DISABLE_TESTNET": "true",
@@ -14,7 +14,7 @@ window.__RUNTIME_CONFIG__ = {
   "VITE_DISABLE_EVM_WALLETS": "false",
   "VITE_DISABLE_SOLANA_WALLETS": "false",
   "VITE_WALLETCONNECT_PROJECT_ID": "39049d63fc9899f24d0530a0927b9172",
-  "VITE_APP_NAME": "silo.",
+  "VITE_APP_NAME": "SiloPerps",
   "VITE_APP_DESCRIPTION": "A decentralized perpetual futures exchange built exclusively for memes coins",
   "VITE_HAS_PRIMARY_LOGO": "false",
   "VITE_HAS_SECONDARY_LOGO": "false",
