@@ -31,7 +31,7 @@ window.__RUNTIME_CONFIG__ = {
   "VITE_SEO_SITE_LANGUAGE": "en",
   "VITE_SEO_SITE_LOCALE": "en_US",
   "VITE_SEO_TWITTER_HANDLE": "",
-  "VITE_SEO_THEME_COLOR": "#000000",
+  "VITE_SEO_THEME_COLOR": "#976a35",
   "VITE_SEO_KEYWORDS": "perpetual dex, memecoin perpetuals, decentralized perpetual exchange, perp dex, dex, crypto, meme perps trading, leveraged meme trading, defi perpetuals, crypto perpetual futures, best perp dex 2025, meme coin leveraged trading, best perpetual dex for meme coins, trade meme coins with leverage, meme perpetual dex, decentralized meme coin trading, high leverage mem perps, silo perp dex, meme coin futures trading, defi meme perpetual platform, leveraged trading meme coins, community governed dex",
   "VITE_AVAILABLE_LANGUAGES": "en,zh,tc,ja,es,ko,vi,de,fr,ru,id,tr,it,pt,uk,pl,nl",
   "VITE_USE_CUSTOM_PNL_POSTERS": "false",
