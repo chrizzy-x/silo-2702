@@ -1,0 +1,121 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             Int       @id @default(autoincrement())
+  address        String    @unique
+  refereeOf      Referral[] @relation("Referrer")
+  referredBy     Referral?  @relation("Referred", fields: [referredById], references: [id])
+  referredById   Int?
+  referralPoints Decimal   @default("0")
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  trades         Trade[]
+  dailyVolumes   DailyVolume[]
+  dailyPoints    DailyPoint[]
+  epochPoints    EpochPoint[]
+  seasonPoints   SeasonPoint[]
+}
+
+model Referral {
+  id          Int    @id @default(autoincrement())
+  referrerId  Int
+  refereeId   Int
+  referrer    User   @relation("Referrer", fields: [referrerId], references: [id])
+  referee     User   @relation("Referred", fields: [refereeId], references: [id])
+  firstTradeQualified Boolean @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Trade {
+  id          Int      @id @default(autoincrement())
+  tradeId     String?  @unique
+  timestamp   DateTime
+  pair        String
+  baseAmount  Decimal  @db.Decimal(38, 18)
+  quoteAmount Decimal  @db.Decimal(38, 18)
+  price       Decimal? @db.Decimal(38, 18)
+  trader      User     @relation(fields: [traderId], references: [id])
+  traderId    Int
+  pointsCredited Boolean @default(false)
+  createdAt   DateTime @default(now())
+  metadata    Json?
+}
+
+model DailyVolume {
+  id          Int      @id @default(autoincrement())
+  date        DateTime
+  trader      User     @relation(fields: [traderId], references: [id])
+  traderId    Int
+  volumeUsd   Decimal  @db.Decimal(38, 18) @default("0")
+  createdAt   DateTime @default(now())
+
+  @@unique([date, traderId])
+}
+
+model DailyPoint {
+  id          Int      @id @default(autoincrement())
+  date        DateTime
+  trader      User     @relation(fields: [traderId], references: [id])
+  traderId    Int
+  volumeUsd   Decimal  @db.Decimal(38, 18)
+  points      Int
+  createdAt   DateTime @default(now())
+
+  @@unique([date, traderId])
+}
+
+model Epoch {
+  id        Int      @id @default(autoincrement())
+  seasonId  Int
+  index     Int
+  startAt   DateTime
+  endAt     DateTime
+  season    Season   @relation(fields: [seasonId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model Season {
+  id             Int      @id @default(autoincrement())
+  name           String
+  startAt        DateTime
+  endAt          DateTime
+  createdAt      DateTime @default(now())
+  epochs         Epoch[]
+  seasonPoints   SeasonPoint[]
+}
+
+model EpochPoint {
+  id        Int      @id @default(autoincrement())
+  epochId   Int
+  epoch     Epoch    @relation(fields: [epochId], references: [id])
+  traderId  Int
+  trader    User     @relation(fields: [traderId], references: [id])
+  points    Int
+  createdAt DateTime @default(now())
+
+  @@unique([epochId, traderId])
+}
+
+model SeasonPoint {
+  id             Int      @id @default(autoincrement())
+  seasonId       Int
+  season         Season   @relation(fields: [seasonId], references: [id])
+  traderId       Int
+  trader         User     @relation(fields: [traderId], references: [id])
+  tradingPoints  Int
+  stakingMultiplier Decimal @db.Decimal(10,4) @default("1.0")
+  boostedPoints  Int
+  referralPoints Int
+  totalPoints    Int
+  createdAt      DateTime @default(now())
+
+  @@unique([seasonId, traderId])
+}
