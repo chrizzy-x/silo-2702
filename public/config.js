@@ -18,7 +18,7 @@ window.__RUNTIME_CONFIG__ = {
   "VITE_APP_DESCRIPTION": "A decentralized perpetual futures exchange built exclusively for memes coins",
   "VITE_HAS_PRIMARY_LOGO": "true",
   "VITE_HAS_SECONDARY_LOGO": "true",
-  "VITE_ENABLED_MENUS": "Markets,Trading,Portfolio,Vaults,Rewards,Points,Leaderboard",
+  "VITE_ENABLED_MENUS": "Markets,Trading,Swap,Portfolio,Points,Leaderboard,Rewards",
   "VITE_CUSTOM_MENUS": "",
   "VITE_ENABLE_SERVICE_DISCLAIMER_DIALOG": "true",
   "VITE_ENABLE_CAMPAIGNS": "false",
