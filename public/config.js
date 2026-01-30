@@ -27,7 +27,7 @@ window.__RUNTIME_CONFIG__ = {
   "VITE_TWITTER_URL": "https://x.com/perpssilo",
   "VITE_SEO_SITE_NAME": "SiloPerps",
   "VITE_SEO_SITE_DESCRIPTION": "A decentralized perpetual futures exchange built exclusively for memes coins",
-  "VITE_SEO_SITE_URL": "https://dex.siloperps.com",
+  "VITE_SEO_SITE_URL": "https://siloperps.com",
   "VITE_SEO_SITE_LANGUAGE": "en",
   "VITE_SEO_SITE_LOCALE": "en_US",
   "VITE_SEO_TWITTER_HANDLE": "@perpssilo",
